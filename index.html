@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indicação IPTV - Ganhe 1 mês grátis!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto px-4 py-10">
+    <div class="bg-white shadow-md rounded-lg p-6 text-center">
+      <h1 class="text-3xl font-bold mb-4 text-green-600">Ganhe 1 mês de IPTV grátis!</h1>
+      <p class="text-lg mb-6">Indique um amigo para nosso serviço de IPTV. Quando ele assinar por apenas <strong>R$10 no primeiro mês</strong>, você recebe <strong>1 mês grátis</strong> como recompensa!</p>
+
+      <div class="grid gap-4 md:grid-cols-2 mt-8">
+        <div class="bg-green-100 p-4 rounded">
+          <h2 class="text-xl font-semibold mb-2">Sou o Indicador</h2>
+          <p class="mb-4">Indique um amigo e receba 1 mês grátis assim que ele pagar a primeira mensalidade.</p>
+
+          <form onsubmit="enviarWhatsApp(event)" class="space-y-3">
+            <input type="text" id="nomeIndicado" placeholder="Nome do amigo indicado" class="w-full p-2 border rounded" required>
+            <input type="text" id="numeroIndicado" placeholder="Número do WhatsApp do indicado" class="w-full p-2 border rounded" required>
+            <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0l-4-4m4 4l-4 4" />
+              </svg>
+              Enviar Indicação via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <div class="bg-blue-100 p-4 rounded">
+          <h2 class="text-xl font-semibold mb-2">Fui Indicado</h2>
+          <p class="mb-2">Comece com apenas R$10 no primeiro mês usando o link de indicação do seu amigo.</p>
+          <a href="https://wa.me/5511951062944" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 inline-block">Assinar por R$10</a>
+        </div>
+      </div>
+
+      <p class="mt-8 text-sm text-gray-600">Promoção válida apenas para novos clientes. O mês gratuito será ativado automaticamente após a confirmação do pagamento do indicado.</p>
+    </div>
+  </div>
+
+  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nomeIndicado').value;
+      const numero = document.getElementById('numeroIndicado').value;
+      const mensagem = `Olá! Estou indicando um amigo para o serviço IPTV.\n\nNome do indicado: ${nome}\nNúmero: ${numero}`;
+      const link = `https://wa.me/5511951062944?text=${encodeURIComponent(mensagem)}`;
+      window.open(link, '_blank');
+    }
+  </script>
+</body>
+</html>
